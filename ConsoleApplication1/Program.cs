@@ -4,15 +4,16 @@ using Newtonsoft.Json;
 
 namespace ConsoleApplication1
 {
-    internal class Program
+    internal static class Program
     {
+        private static int uidCounter;
         public static void Main(string[] args)
         {
-            string games = @"D:\Games";
-            string unistuff = @"C:\Users\GoPJo\Desktop\UniStuff";
-            FolderInfo folderHierarchy = DirectionDiscovery(unistuff);
+            //string games = @"D:\Games";
+            string uniStuff = @"C:\Users\GoPJo\Desktop\UniStuff";
+            FolderInfo folderHierarchy = DirectionDiscovery(uniStuff);
             string output = JsonConvert.SerializeObject(folderHierarchy);
-            
+            Console.WriteLine(uidCounter);
             File.WriteAllText(@".\fileManifest.json", output);
         }
 
@@ -22,7 +23,8 @@ namespace ConsoleApplication1
 
             var currentFolder = new FolderInfo 
             {
-                folderName = directionPath
+                folderName = directionPath,
+                uid = GenerateUniqueId()
             };
 
             bool folderLegal = true;
@@ -53,7 +55,8 @@ namespace ConsoleApplication1
                     var currentFile = new FileInfo
                     {
                         fileName = file,
-                        lastTimeEdited = Directory.GetLastWriteTime(file)
+                        lastTimeEdited = Directory.GetLastWriteTime(file),
+                        uid = GenerateUniqueId()
                     };
                     currentFolder.fileInfos.Add(currentFile);
                 }
@@ -69,10 +72,7 @@ namespace ConsoleApplication1
                     {
                         var gitOrigin = section;
                         Console.WriteLine(section);
-                        var delimiters = new string[]
-                        {
-                            "\\v", "\v", "\r", "\n"
-                        };
+                        string[] delimiters = { "\\v", "\v", "\r", "\n" };
                         string[] originLines = gitOrigin.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
                         foreach (string line in originLines)
                         {
@@ -92,6 +92,12 @@ namespace ConsoleApplication1
             }
 
             return currentFolder;
+        }
+
+        private static int GenerateUniqueId()
+        {
+            uidCounter %= Int32.MaxValue;
+            return uidCounter++;
         }
     }
 }
