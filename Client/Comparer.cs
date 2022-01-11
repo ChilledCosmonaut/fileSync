@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace ConsoleApplication1
+namespace Client
 {
     public class Comparer
     {

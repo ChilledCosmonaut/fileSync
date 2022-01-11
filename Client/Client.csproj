@@ -48,7 +48,6 @@
         <Compile Include="FolderInfo.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Properties\Root.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />

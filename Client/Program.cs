@@ -2,22 +2,22 @@
 using System.IO;
 using Newtonsoft.Json;
 
-namespace ConsoleApplication1
+namespace Client
 {
-    internal static class Program
+    public static class Program
     {
         private static int uidCounter;
         public static void Main(string[] args)
         {
             //string games = @"D:\Games";
-            string uniStuff = @"C:\Users\GoPJo\Desktop\UniStuff";
+            string uniStuff = @"../../../UnitTests/TestFolder";//C:\Users\GoPJo\Desktop\UniStuff";
             FolderInfo folderHierarchy = DirectionDiscovery(uniStuff);
             string output = JsonConvert.SerializeObject(folderHierarchy);
             Console.WriteLine(uidCounter);
             File.WriteAllText(@".\fileManifest.json", output);
         }
 
-        private static FolderInfo DirectionDiscovery(string directionPath)
+        public static FolderInfo DirectionDiscovery(string directionPath)
         {
             string[] discoveredDirectories = Directory.GetDirectories(directionPath);
 
