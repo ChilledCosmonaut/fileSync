@@ -27,6 +27,7 @@ namespace ConsoleApplication1
                     filesToDownload.Add(file);
                 }
             }
+            return main;
         }
         
         public FolderInfo MergeTwoRootFolderInfos(FolderInfo first, FolderInfo second)
@@ -38,7 +39,7 @@ namespace ConsoleApplication1
 
         private FolderInfo MergeFolderInfos(FolderInfo first, FolderInfo second)
         {
-            
+            return first;
         }
     }
 }
