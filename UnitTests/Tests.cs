@@ -9,7 +9,7 @@ namespace TestProject1
     public class Tests
     {
         [Test]
-        public void Test1()
+        public void TestGetFolderAsJson()
         {
             FolderInfo calculatedHierarchy = Program.DirectionDiscovery(@"../../../UnitTests/TestFolder");
             string testString = JsonConvert.SerializeObject(calculatedHierarchy);
