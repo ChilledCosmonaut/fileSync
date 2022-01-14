@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Client
+namespace ConsoleApplication1
 {
     public class FolderInfo
     {

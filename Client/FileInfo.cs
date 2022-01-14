@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Client
+namespace ConsoleApplication1
 {
     public class FileInfo
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Client
+namespace ConsoleApplication1
 {
     public class FolderParser
     {
