@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace TestProject1
 {
     [TestFixture]
-    public class Tests
+    public class TestFolderParser
     {
         [Test]
         public void TestGetFolderAsJson()
