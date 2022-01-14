@@ -11,7 +11,7 @@ namespace TestProject1
         [Test]
         public void TestGetFolderAsJson()
         {
-            FolderInfo calculatedHierarchy = Program.DirectionDiscovery(@"../../../UnitTests/TestFolder");
+            FolderInfo calculatedHierarchy = FolderParser.DirectionDiscovery(@"../../../UnitTests/TestFolder");
             string testString = JsonConvert.SerializeObject(calculatedHierarchy);
             
             string actualString = File.ReadAllText(@"../../fileManifest.json");
