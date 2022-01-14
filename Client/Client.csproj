@@ -46,6 +46,7 @@
         <Compile Include="Comparer.cs" />
         <Compile Include="FileInfo.cs" />
         <Compile Include="FolderInfo.cs" />
+        <Compile Include="FolderParser.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
